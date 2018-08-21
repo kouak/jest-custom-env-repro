@@ -6,8 +6,13 @@ class CustomEnvironment extends NodeEnvironment {
   }
 
   async setup() {
-    this.global.__DUMMY_DATE__ = new Date();
-    this.global.__DUMMY_PROMISE__ = Promise.resolve();
+    this.global.__DUMMY__ = {
+      Date: new Date(),
+      Promise: Promise.resolve(),
+      Buffer: Buffer.alloc(1),
+      Array: new Array(),
+    };
+
     // Workaround
     // this.global.Date = Date;
     // this.global.Promise = Promise;
