@@ -1,0 +1,16 @@
+{
+  "name": "jest-repro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverageFrom": ["src/**/*.js"],
+    "testEnvironment": "./testenv.js"
+  },
+  "dependencies": {
+    "jest": "^23.5.0"
+  }
+}
