@@ -16,6 +16,7 @@ class CustomEnvironment extends NodeEnvironment {
     // Workaround
     // this.global.Date = Date;
     // this.global.Promise = Promise;
+    // this.global.Array = Array;
     await super.setup();
   }
 
