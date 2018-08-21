@@ -1,15 +1,17 @@
-const dummy = require('./src/index');
 const NodeEnvironment = require('jest-environment-node');
 
-class DummyEnvironment extends NodeEnvironment {
+class CustomEnvironment extends NodeEnvironment {
   constructor(config) {
     super(config);
   }
 
   async setup() {
+    this.global.__DUMMY_DATE__ = new Date();
+    this.global.__DUMMY_PROMISE__ = Promise.resolve();
+    // Workaround
+    // this.global.Date = Date;
+    // this.global.Promise = Promise;
     await super.setup();
-
-    this.global.__DUMMY__ = dummy;
   }
 
   async teardown() {
@@ -21,4 +23,4 @@ class DummyEnvironment extends NodeEnvironment {
   }
 }
 
-module.exports = DummyEnvironment;
+module.exports = CustomEnvironment;
